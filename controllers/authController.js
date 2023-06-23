@@ -47,6 +47,8 @@ const login = async (req, res) => {
     }
 
     const { password, role, ...rest } = user._doc; // rest คือตัวแปรที่เก็บข้อมูลที่เหลือใน user ที่ส่งมา
+
+    // Generate token
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.JWT_SECRET_KEY,

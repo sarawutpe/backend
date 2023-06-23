@@ -3,11 +3,11 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-// const tourRoute = require("./routes/tours");
-// const userRoute = require("./routes/users");
-// const authRoute = require("./routes/auth");
-// const reviewRoute = require("./routes/reviews");
-// const bookingRoute = require("./routes/bookings");
+const tourRoute = require("./routes/tours");
+const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
+const reviewRoute = require("./routes/reviews");
+const bookingRoute = require("./routes/bookings");
 
 const connectDB = require("./db");
 
@@ -32,11 +32,11 @@ app.use(cookieParser());
 app.get("/", (req, res) => {
   res.send("api is ok");
 });
-// app.use("/api/v1/tours", tourRoute);
-// app.use("/api/v1/auth", authRoute);
-// app.use("/api/v1/users", userRoute);
-// app.use("/api/v1/review", reviewRoute);
-// app.use("/api/v1/booking", bookingRoute);
+app.use("/api/v1/tours", tourRoute);
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/review", reviewRoute);
+app.use("/api/v1/booking", bookingRoute);
 
 app.listen(port, () => {
   console.log("Server listening on Port", port);
